@@ -154,6 +154,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-linux之Makefile语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/">linux之Makefile语法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-06-11T09:31:55.506Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="linux之Makefile语法"><a href="#linux之Makefile语法" class="headerlink" title="linux之Makefile语法"></a>linux之Makefile语法</h4><h5 id="1-在同一级目录下创建文本文档Makefile文件，和hello-c的文件，-在Makefile中是注释的意思。"><a href="#1-在同一级目录下创建文本文档Makefile文件，和hello-c的文件，-在Makefile中是注释的意思。" class="headerlink" title="1.在同一级目录下创建文本文档Makefile文件，和hello.c的文件，#在Makefile中是注释的意思。"></a>1.在同一级目录下创建文本文档Makefile文件，和hello.c的文件，#在Makefile中是注释的意思。</h5><h5 id="2-用make直接进行编译，会生成-o、-i、-S-等文件。"><a href="#2-用make直接进行编译，会生成-o、-i、-S-等文件。" class="headerlink" title="2.用make直接进行编译，会生成.o、.i、.S.等文件。"></a>2.用make直接进行编译，会生成.o、.i、.S.等文件。</h5><h6 id="第一层-显示规则："><a href="#第一层-显示规则：" class="headerlink" title="第一层  显示规则："></a>第一层  显示规则：</h6><p>1.目标文件：依赖文件（可以省去预编译，汇编，编译）</p>
+<p>​    [Tab键]指令</p>
+<p>2.第一个目标文件是我们的最终目标，下面的hello是我们的最终目标。</p>
+<p>3.伪目标：.PHONY：</p>
+<p>rm  -rf   hello.S  hello.i   hello.o(指定删除你不需要的文件)</p>
+<p>4.Makefile文件书写</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">hello:hello.o  <span class="comment">//hello是目标文件，hello.i是依赖文件</span></span><br><span class="line">    gcc hell.o -o hello</span><br><span class="line">hello.o:hello.S</span><br><span class="line">    gcc -c hello.S -o hello.o</span><br><span class="line">hello.S:hello.i</span><br><span class="line">    gcc -S hello.i -o hello.S</span><br><span class="line">hello.i:hello.c   <span class="comment">//hello.i是目标文件，hello.c是依赖文件</span></span><br><span class="line">    gcc -E hello.c -o hello.i</span><br><span class="line">    </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">上面的可以直接由下面的得到目标文件hello文件</span><br><span class="line"> hello:hell.o  <span class="comment">//hello是目标文件，hello.o是依赖文件</span></span><br><span class="line">     gcc hello.o -o hello <span class="comment">//可以直接得到hello        </span></span><br><span class="line">hello.o:hello.c</span><br><span class="line">    gcc -c hello.c -o hello.o</span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">     .PHONY:  <span class="comment">//固定的格式</span></span><br><span class="line"><span class="built_in">clear</span>:   <span class="comment">//自定义的名字，作用是删除你不需要的东西，可以在终端执行 make clear进行删除</span></span><br><span class="line">	rm  -rf   hello.S  hello.i   hello.o</span><br></pre></td></tr></table></figure>
+
+<h6 id="第二层-变量"><a href="#第二层-变量" class="headerlink" title="第二层   变量"></a>第二层   变量</h6><p>在第一层的基础上进行变量替换：</p>
+<p>变量  = （替换）   +=（追加）         ：=（恒等于）</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">VAL&#x3D;hello           &#x2F;&#x2F;替换</span><br><span class="line">VAL+&#x3D;hello1         &#x2F;&#x2F;追加</span><br><span class="line">A：&#x3D;gcc             &#x2F;&#x2F;恒等于，gcc为不可变内容</span><br><span class="line">B&#x3D;hello.o</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">书写规范：注意加上一个$（变量名）；</span><br><span class="line">$(VAL):$(B)        &#x2F;&#x2F;VAL是目标文件，B是依赖文件</span><br></pre></td></tr></table></figure>
+
+<h6 id="第三层-隐含规则："><a href="#第三层-隐含规则：" class="headerlink" title="第三层  隐含规则："></a>第三层  隐含规则：</h6><p>%.c(任意的.c文件       *.c(所有的.c文件)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%.c:%.o</span><br><span class="line">	gcc -c %.c -o %.o</span><br></pre></td></tr></table></figure>
+
+<h6 id="第四层-通配符"><a href="#第四层-通配符" class="headerlink" title="第四层   通配符"></a>第四层   通配符</h6><p>最常见的几个指令：</p>
+<p>$@   所有的目标文件            $^           所有的依赖文件     $&lt;  所有依赖文件的第一个文件</p>
+<p>希望对你们有帮助，制作不易，转载请标明出处：</p>
+<p><a href="https://zhajianliang.github.io" target="_blank" rel="noopener">https://zhajianliang.github.io</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-linux之vi编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
