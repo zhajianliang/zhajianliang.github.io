@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | zhajianliang</title>
+  <title>sql语句的超详细笔记 | zhajianliang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="fighting">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhajianliang">
-<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
+  <meta name="description" content="SQL常用语句的增删改查–创建数据库create database teston primary(name&#x3D;’test’,–主数据文件的逻辑名称filename&#x3D;’D:\shujuku\test.mdf’–主数据文件的物理名称及地址size&#x3D;3mb,–主数据文件的初始大小maxsize&#x3D;10mb,–主数据文件的最大值filegrowth&#x3D;3mb–主数据文件的增长率)log on–日志文件(name">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql语句的超详细笔记">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="zhajianliang">
-<meta property="og:description" content="fighting">
+<meta property="og:description" content="SQL常用语句的增删改查–创建数据库create database teston primary(name&#x3D;’test’,–主数据文件的逻辑名称filename&#x3D;’D:\shujuku\test.mdf’–主数据文件的物理名称及地址size&#x3D;3mb,–主数据文件的初始大小maxsize&#x3D;10mb,–主数据文件的最大值filegrowth&#x3D;3mb–主数据文件的增长率)log on–日志文件(name">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-16T10:59:55.866Z">
+<meta property="article:modified_time" content="2020-06-28T02:28:16.449Z">
 <meta property="article:author" content="zhaqiu">
 <meta name="twitter:card" content="summary">
   
@@ -152,184 +154,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-sql语句的超详细笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      sql语句的超详细笔记
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+
+        
+        <a href="/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" class="archive-article-date">
   	<time datetime="2020-06-16T10:59:55.866Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/">sql语句的超详细笔记</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="SQL常用语句的增删改查"><a href="#SQL常用语句的增删改查" class="headerlink" title="SQL常用语句的增删改查"></a>SQL常用语句的增删改查</h5><p>–创建数据库<br>create database test<br>on primary<br>(name=’test’,–主数据文件的逻辑名称<br>filename=’D:\shujuku\test.mdf’–主数据文件的物理名称及地址<br>size=3mb,–主数据文件的初始大小<br>maxsize=10mb,–主数据文件的最大值<br>filegrowth=3mb–主数据文件的增长率<br>)<br>log on–日志文件<br>(<br>name=’test’,<br>filename=’D:\shujuku\test.ldf’，<br>size=2mb,<br>maxsize=100mb,<br>filegrowth=15%<br>)</p>
+<p>use test–使用test数据库<br>–创建表<br>create table ClassIfo<br>(cId int not null primary key identity(1,1),<br>cTitle nvarchar(10)<br>)</p>
+<p>创建表<br>select * from ClassIfo<br>use test<br>create table StudentInfo<br>(<br>sId int not null primary key identity(1,1),<br>sName nvarchar(10) not null,<br>sSex bit default(0),<br>sBirth date,<br>sPhone char(11),<br>sEamil varchar(20),<br>cid int not null,<br>foreign key(cid) references ClassIfo(cid)<br>)</p>
+<p>–插入 insert into 表名 values<br>select * from ClassIfo<br>insert ClassIfo(cTitle) values(‘张三’)<br>insert into ClassIfo values(‘张三’),(‘李四’)<br>insert into ClassIfo values(‘张三’,’李四’)<br>insert ClassIfo(cTitle) values(‘张三’)<br>insert into ClassIfo values(‘张三’),(‘李四’)</p>
+<p>–修改操作update 表名 set 列名=‘修改的值’，alter table 表名  相应指令<br>select * from ClassIfo<br>–为所有的列进行修改<br>update ClassIfo set cTitle=’展示柜’<br>–为指定的行进行修改<br>update ClassIfo set cTitle=’李四’ where cId&gt;2<br>–删除操作 delete 表名 where<br>select * from ClassIfo<br>delete ClassIfo where cid&gt;2<br>–清空表 truncate table 表名</p>
+<p>–查询 select 列名 as 别名，列名 as 别名  from 表名 as 别名（as可以省略）<br>–取别名 as<br>select ctitle as 标题 from ClassIfo as al<br>select al.ctitle astitle from ClassIfo al</p>
+<p>–select top n * from classinfo   查询前n行，所有列<br>–select top n percent * from classinfo  查询前百分之的行的所有列<br>insert into ClassIfo values(‘张三’),(‘李四’),(‘王五’)<br>select top 3 *<br>from ClassIfo</p>
+<p>–排序 order by 列名 asc,列名 asc（从小到大）/desc（从大到小），写在from的后面，如果一个列名相等，在比较另外一个列名<br>select * from ClassIfo<br>order by cId desc</p>
+<p>–distinct 消除重复行<br>select distinct cid from ClassIfo</p>
+<p>–条件查询  写在where后面<br>select ctitle from ClassIfo<br>where cId=4<br>–取出1班或3班的学生的信息<br>select * from ClassIfo<br>where cId in(1,3)  –in指的是1或3并不是连续的</p>
+<p>–模糊查询<br>–查找姓张的学生信息，%代表一个字符或多个字符<br>select * from StudentInfo<br>where sname like ‘张%’<br>–查询姓名为两个字的姓黄的学生信息,<em>表示一个字符，[^0-2],表示除了0-2之外的所有的数<br>select * from StudentInfo<br>where sname like ‘黄</em>‘<br>–查询一个数值为空的条件用is不能用=</p>
+<p>–多表连接查询，两个表之间有对应的关系，可以是内连接，也可以是外连接 select *from classinfo inner join studentinfo on classinfo.cid=studentinfo.cid<br>–right join–右连接匹配右边边特有的数据<br>–left join–左连接，匹配左边特有的数据<br>–full join–完全外连接，同时匹配左边和右边特有的数据<br>–inner join–内连接，匹配两表中完全匹配的数据<br>select cl.sname,st.ctitle from ClassIfo as cl inner join studentinfo on cl.cit=st.cid</p>
+<p>select * from StudentInfo</p>
+<p>–多张表的连接查询，classinfo表和studentinfo表有关系，studentinfo和subjectinfo表有关系，依次类推<br>–查询三张表的所有信息<br>select * from classinfo as cl<br>inner join studentinfo as stu on cl.cid=stu.cid<br>inner join subjectinfo as sub on stu.cid=sub.cid<br>–聚合函数<br>sum（最大值）、avg（平均值）、min（最小值）、count（<em>）统计所有行数的个数<br>–查询学生表中一共有多少人<br>select count(</em>) as count1 from studentinfo<br>–查询班级编号为一的人数<br>select count(*) as count1 from studentinfo where cid=1<br>–使用count的时候，null不会计数<br>select count(sphone) from studentinfo<br>–查询分数最高的成绩<br>select max(score) from scoreinfo<br>–查询一班中分数最高的成绩<br>select max(score) from scoreinfo where cid=1</p>
+<p>–开窗函数：over，放在聚合函数后面，作用是将聚合函数统计的信息分布到每一行中<br>–统计信息分布到行中<br>select scoreinfo.<em>,avg(score) from scoreinfo where subid=1          –会报错<br>–正确写法如下<br>select scoreinfo.</em>,avg(score) over() from scoreinfo where subid=1 </p>
+<p>–分组：group by<br>–统计每个班的男女生人数<br>select sgender,cid count(<em>) from studentinfo<br>group by sgender,cid<br>–统计学生编号大于2的各班级的男女生人数<br>select cid,sgender，count(</em>) from studentinfo<br>where sid&gt;2 group by cid,sgender<br>–分完组之后，如果还想对分组的内容进行筛选，在group by 后面加having加条件，haveing不能使用未参与分组的列<br>–也可以使用in的方法，having count(<em>) in(2,5,8),where中不能使用聚合函数<br>–统计学生编号大于2的各班级的男女生人数大于3的信息<br>select cid,sgender,count(</em>) from studentinfo<br>where cid&gt;2 group by cid,sgender having count(*)&gt;3<br>–isnull(类型,’替换内容’)的用法<br>–查询英语成绩，如果英语成绩为空则显示缺考<br>select isnull(convert(varchar(20),singlish(所查询的列名)),’缺考’) from studentinfo<br>–完整的sql语句及执行顺序<br>select distinct top n *from<br>table1 join table2 on …<br>where …<br>group by … having …<br>order by …</p>
+<p>–联合查询 只能是有相同列的两个并且每一个列对应的值类型相同才能查询 union（并集）、union all(所有的数，包括重复的数)<br>         –except（补集，找它左边特有的部分），intersect(交集)<br>–查询cid和sid的交集<br>select cid from classinfo<br>intersect<br>select sid from studentinfo</p>
+<p>–将横表变为纵表<br>select ‘最高成绩’ as 描述信息,max(tenglish) as 成绩 from studentinfo<br>union<br>select ‘最低成绩’ as 描述信息,min(tenglish) as 成绩 from studentinfo</p>
+<p>–快速备份表 ：select 列名 into 备份表名 from 源表名 如果备份表不存在，则会新建一个表，表的结构完全一致</p>
+<pre><code>    --但是不会包含约束条件，如果只想包含表的结构不包含数据可以加一个不存在的条件
+--向已有的表中，备份另一个表 insert into 备份表名 select 列名 from 源表名</code></pre><p>–将数据备份到一个不存在的test表中<br>select * into test from classinfo<br>–将数据备份到一个不存在的test表中，只要结构<br>select * into test from classinfo where 1=2<br>–或<br>select top 0 * into test from classinfo<br>–将数据备份到一个存在的表中<br>insert into test select cid from calssinfo</p>
+<p>–类型转换：select cast(类型1(被转换) as 类型2(目标))</p>
+<pre><code>select convert(数据类型1(目标),数据类型2(被转换))</code></pre><p>–将89.0000转换为89.0<br>select cast(89.0000 as decimal(3,1))<br>–计算字符的ascii值 select ascii(‘字符’)<br>–根据ascii的值转到字符 select char(数值)<br>–返回字符串长度 select len(‘字符串’)<br>–将字符串转换为小写 select lower(‘大写’)，将字符串转换为大写 select upper(‘小写’)<br>–截取字符串<br>–从左边截取字符串<br>select left(‘字符串’,2)–从左边开始截取两个字符<br>–从右边截取字符串<br>select right(‘字符串’,2)–从右边截取两个字符串<br>select substring(‘字符串’,2,3)–从第二个字符开始，一共截取3个字符<br>–切掉空格<br>select ‘哈哈’+ltrim(‘      hello world’)–去掉左边的空格  哈哈hello world<br>select ‘哈哈’+rtrim(   ‘hello’   )–去掉右边的空格 哈哈   hello<br>–去空格需要嵌套<br>select ‘哈哈’+rtrim(ltrim(‘      hello world’))–去掉左边的空格  哈哈hello world</p>
+<p>–视图(对select语句进行封装，方便使用)<br>–语法  creat view 视图名 as select的查询语句</p>
+<p>–子查询(在一个查询中嵌套另一个查询)关键字有=，in，exits(in的效率低于exits)<br>–查询参加了考试的学生的信息<br>select * from studentinfo<br>where sid in(select distinct stuid from scoreinfo)<br>–或<br>select * from studentinfo<br>where sid exits(select * from scoreinfo where studentinfo.stuid=scoreinfo.sid)</p>
+<p>–case语句 语法<br>–查询学生的所有信息，并且判断该学生是否及格<br>select *, 是否及格=case<br>                   when tenglish&gt;60 then ‘及格’<br>                   else ‘差’<br>                   end from scoreinfo–可以判断一个区间的值 &gt;=<br>–case语句第二种表述方式，但是不能用于区间<br>select *,是否及格=case tenglishscore when 60 then ‘及格’<br>                            when 59 then ‘不及格’<br>                            else ‘优秀’<br>                            end from scoreinfo        –不能用域区间判断<br>–异常处理 ：begin try …<br>         end try<br>如果上面的语句有错误则执行下面的语句<br>         begin catch …<br>         end catch </p>
+<p>–事务 判断一任务是否完成，没有完成则会回到初始的状态<br>–语法：begin transaction …       –开始事务<br>    comit transaction           –提交事务,没有错才会执行，执行完了以后就不会执行下面的语句<br>        rollback transaction …    –回滚,出错后执行该语句<br>–锁  防止对数据的误操作<br>语法：在事务的基础上把提交操作，这样即使修改了还是会回到初始状态<br>begin transaction …<br>rollback transaction  –回滚</p>
+<p>–存储过程  将select语句封装成一个存储过程，语法：create proc 名称 参数列表 as begin … end<br>调用：exec 名称 参数列表<br>–将字符串去空格<br>declare @temp varchar(100)<br>set @temp=’      abc  ‘<br>select ltrim(rtrim(@temp))<br>–转换成存储过程<br>create proc trim<br>    @str1 varchar(100)<br>    as<br>    begin select ltrim(rtrim(@str1))<br>    end</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/15/%E5%B8%B8%E8%A7%81cc++%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8%E5%AE%9E%E4%BE%8B/" class="archive-article-date">
-  	<time datetime="2020-06-15T13:54:46.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/15/%E5%B8%B8%E8%A7%81cc++%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8%E5%AE%9E%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见cc++语言经典实例</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/15/%E5%B8%B8%E8%A7%81cc++%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8%E5%AE%9E%E4%BE%8B/">常见cc++语言经典实例</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-06-11T09:31:55.506Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/">linux之Makefile语法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/07/linux%E4%B9%8Bvi%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-06-07T01:46:15.781Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/07/linux%E4%B9%8Bvi%E7%BC%96%E8%BE%91%E5%99%A8/">linux之vi编辑器</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-06-03T03:41:31.868Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">十大经典的排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/02/C%E8%AF%AD%E8%A8%80%E5%9C%A8VisualStudio2017%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/" class="archive-article-date">
-  	<time datetime="2020-06-02T08:50:28.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/02/C%E8%AF%AD%E8%A8%80%E5%9C%A8VisualStudio2017%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/">C语言在VisualStudio2017下的一些注意事项和常见错误</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -352,8 +353,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
