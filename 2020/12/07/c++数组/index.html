@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | zhajianliang</title>
+  <title>c++数组 | zhajianliang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="fighting">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhajianliang">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="每次学完数组之后就是当时学完，当时特别的清楚，可是过了几天却就忘，今天我就把一维数组二维数组的知识点总结如下： 1.一维数组常见用法如下： 1.1一维数组的数组名称： 除了两种特殊的情况以外，都是指向数组第一个元素的指针。  特殊情况1：sizeof（数组名）求得的是整个数组的大小 特殊情况2：对数组名取地址，是一维的数组指针，它的步长整个一维数组的长度 一维数组名是一维数组的首地址，等于&amp;amp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++数组">
+<meta property="og:url" content="http://yoursite.com/2020/12/07/c++%E6%95%B0%E7%BB%84/index.html">
 <meta property="og:site_name" content="zhajianliang">
-<meta property="og:description" content="fighting">
+<meta property="og:description" content="每次学完数组之后就是当时学完，当时特别的清楚，可是过了几天却就忘，今天我就把一维数组二维数组的知识点总结如下： 1.一维数组常见用法如下： 1.1一维数组的数组名称： 除了两种特殊的情况以外，都是指向数组第一个元素的指针。  特殊情况1：sizeof（数组名）求得的是整个数组的大小 特殊情况2：对数组名取地址，是一维的数组指针，它的步长整个一维数组的长度 一维数组名是一维数组的首地址，等于&amp;amp">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-06T16:10:22.396Z">
+<meta property="article:modified_time" content="2020-12-07T01:27:11.706Z">
 <meta property="article:author" content="zhaqiu">
 <meta name="twitter:card" content="summary">
   
@@ -152,295 +154,185 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-c++数组" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
-  	<time datetime="2020-12-07T01:56:29.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">字符串和数字之间的相互转换</a>
+    <h1 class="article-title" itemprop="name">
+      c++数组
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/07/c++%E6%95%B0%E7%BB%84/" class="archive-article-date">
+        
+        <a href="/2020/12/07/c++%E6%95%B0%E7%BB%84/" class="archive-article-date">
   	<time datetime="2020-12-06T16:10:22.396Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/07/c++%E6%95%B0%E7%BB%84/">c++数组</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>每次学完数组之后就是当时学完</strong>，<strong>当时特别的清楚</strong>，<strong>可是过了几天却就忘</strong>，<strong>今天我就把一维数组二维数组的知识点总结如下</strong>：</p>
+<p><strong>1</strong>.<strong>一维数组常见用法如下</strong>：</p>
+<p>1.1一维数组的数组名称：</p>
+<p>除了两种特殊的情况以外，都是指向数组第一个元素的指针。</p>
+<p> 特殊情况1：sizeof（数组名）求得的是整个数组的大小</p>
+<p>特殊情况2：对数组名取地址，是一维的数组指针，它的步长整个一维数组的长度</p>
+<p>一维数组名是一维数组的首地址，等于&amp;arr[0]（第一个元素的地址）</p>
+<p>1.2一维数组指针的定义方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line"><span class="comment">//方法一，先定义出数组类型，再通过类型定义数组指针变量</span></span><br><span class="line">typedef int(ARRAY)[5];//ARRARY代表存放5个int类型元素的数组 的数组类型</span><br><span class="line">ARRAY arr1;<span class="comment">//arr等同于arr可以向里面插入数据</span></span><br><span class="line"><span class="comment">//数组指针</span></span><br><span class="line">ARRAY* arr2=&amp;arr;</span><br><span class="line"><span class="comment">//方位arr2中的内容  *arr2等同于arr</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*arr2)[i]);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//方法2，先定义数组指针类型，再通过类型定义数组指针变量</span></span><br><span class="line">typedef int(*ARRAY)[5];</span><br><span class="line"><span class="comment">//数组指针</span></span><br><span class="line">ARRAY arr3=&amp;arr；<span class="comment">//遍历arr3与arr2一样</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*arr3)[i]);</span><br><span class="line">	&#125;    </span><br><span class="line"><span class="comment">//方法3，最方便直观的一种</span></span><br><span class="line"><span class="keyword">int</span>(*p)[<span class="number">5</span>]=&amp;arr;  </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*p)[i]);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p><strong>2</strong>.<strong>二维数组常见用法</strong></p>
+<p>2.1 二维数组名</p>
+<p>二维数组名 除了两种特殊情况外，是指向第一个一维数组的 数组指针（int（*p）【3】）</p>
+<p>特殊情况1：sizeof 统计二维数组大小</p>
+<p>特殊情况2：对数组名称取地址  int(*p)【3】【3】 = &amp;arr</p>
+<p>二维数组的数组指针跟一维数组指针的定义方式类似：只是多了个维度（int（*p）【3】【3】）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> int arr2[][3] &#x3D; &#123; &#123;1,2,3&#125;,&#123;4,5,6&#125;,&#123;7,8,9&#125; &#125;;</span><br><span class="line">&#x2F;&#x2F;二维数组的数组名是整个位数数组的首地址等价于，arr2[0]和arr2[0][0],都是二维数组的首地址</span><br><span class="line">&#x2F;&#x2F;二维数组的访问</span><br><span class="line">for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">&#123;</span><br><span class="line">	for(int j&#x3D;0;j&lt;5;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;(*(arr2+i)+j)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>3</strong> <strong>不要放回局部变量的地址</strong>，<strong>字符串也不行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;出现乱码,因为str是局部变量开辟在栈区，在当前函数结束就被释放，我们无权操作</span><br><span class="line">char* abtain()</span><br><span class="line">&#123;</span><br><span class="line">	char str[10] &#x3D; &quot;hello&quot;;</span><br><span class="line">	printf(&quot;%s\n&quot;, str);</span><br><span class="line">	return str;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char* str &#x3D; abtain();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;而下面这个可以  因为char* str &#x3D; &quot;hello&quot;，的内存是开辟在了常量区，常量区的内容不会随该函数的结束而释放，可以作为返回值，正确</span><br><span class="line">char* abtain()</span><br><span class="line">&#123;</span><br><span class="line">	char* str &#x3D; &quot;hello&quot;;</span><br><span class="line">	printf(&quot;%s\n&quot;, str);</span><br><span class="line">	return str;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char* str &#x3D; abtain();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>转载：请标明原创，谢谢</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/07/c++%E6%95%B0%E7%BB%84/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-06-16T10:59:55.866Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/12/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          字符串和数字之间的相互转换
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sql语句的超详细笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/16/sql%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%B6%85%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/">sql语句的超详细笔记</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/15/%E5%B8%B8%E8%A7%81cc++%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8%E5%AE%9E%E4%BE%8B/" class="archive-article-date">
-  	<time datetime="2020-06-15T13:54:46.961Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/15/%E5%B8%B8%E8%A7%81cc++%E8%AF%AD%E8%A8%80%E7%BB%8F%E5%85%B8%E5%AE%9E%E4%BE%8B/">常见cc++语言经典实例</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-06-11T09:31:55.506Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/11/linux%E4%B9%8BMakefile%E8%AF%AD%E6%B3%95/">linux之Makefile语法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/07/linux%E4%B9%8Bvi%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-06-07T01:46:15.781Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/07/linux%E4%B9%8Bvi%E7%BC%96%E8%BE%91%E5%99%A8/">linux之vi编辑器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/03/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-06-03T03:41:31.868Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/03/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">十大经典的排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/02/C%E8%AF%AD%E8%A8%80%E5%9C%A8VisualStudio2017%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/" class="archive-article-date">
-  	<time datetime="2020-06-02T08:50:28.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/02/C%E8%AF%AD%E8%A8%80%E5%9C%A8VisualStudio2017%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%92%8C%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/">C语言在VisualStudio2017下的一些注意事项和常见错误</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/31/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%B6%85%E8%AF%A6%E7%BB%86%E6%95%99%E5%AD%A6%EF%BC%8C%E5%B8%A6%E4%BD%A010%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%ACgit/" class="archive-article-date">
-  	<time datetime="2020-05-31T10:05:02.520Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/31/Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%B6%85%E8%AF%A6%E7%BB%86%E6%95%99%E5%AD%A6%EF%BC%8C%E5%B8%A6%E4%BD%A010%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%ACgit/">Git远程仓库管理的两种超详细教学，带你10分钟玩转git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/markdown%E8%AF%AD%E6%B3%95%E4%B9%8Btypora%E4%B8%80%E6%AC%BE%E5%BE%88%E5%A5%BD%E7%94%A8%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8,%E6%95%99%E4%BD%A010%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%ACtypora/" class="archive-article-date">
-  	<time datetime="2020-05-28T12:59:58.911Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/markdown%E8%AF%AD%E6%B3%95%E4%B9%8Btypora%E4%B8%80%E6%AC%BE%E5%BE%88%E5%A5%BD%E7%94%A8%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8,%E6%95%99%E4%BD%A010%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%ACtypora/">markdown语法之typora一款很好用的编辑器,教你10分钟玩转typora</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -464,8 +356,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

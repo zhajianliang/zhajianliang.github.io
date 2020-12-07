@@ -154,6 +154,179 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-字符串和数字之间的相互转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">字符串和数字之间的相互转换</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
+  	<time datetime="2020-12-07T01:56:29.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>字符串和数字之间的相互转换</strong></p>
+<p><strong>数字转为字符串</strong>：</p>
+<p>方法1：使用sprintf</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">1024</span>];</span><br><span class="line">str = <span class="built_in">sprintf</span>(str,<span class="string">"%d"</span>,num);</span><br></pre></td></tr></table></figure>
+
+<p>方法2：使用最原始的方式进行转换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">string</span> str1,str2;</span><br><span class="line"><span class="keyword">while</span>(num)</span><br><span class="line">&#123;</span><br><span class="line">    str+=num%<span class="number">10</span>+<span class="string">'0'</span>;</span><br><span class="line">    num/=<span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=str.length()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">    str2+=str[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法3：to_string函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">string</span> str=to_string(num);</span><br></pre></td></tr></table></figure>
+
+<p>方法4：_itoa函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">100</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="comment">//10代表将num是十进制的数</span></span><br><span class="line">_itoa(num, str2, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>字符串转数字：**</p>
+<p>方法1：sscanf</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[]=<span class="string">"100"</span>;</span><br><span class="line"><span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">sscanf</span>(str,<span class="string">"%d"</span>,&amp;num)</span><br></pre></td></tr></table></figure>
+
+<p>方法2：atoi函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[]=<span class="string">"100"</span>;</span><br><span class="line"><span class="keyword">int</span> num=atoi(str);</span><br></pre></td></tr></table></figure>
+
+<p>方法3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string str&#x3D;&quot;100&quot;;</span><br><span class="line">int val&#x3D;0;</span><br><span class="line">for(int i&#x3D;0;i&lt;str.length();i++)</span><br><span class="line">&#123;</span><br><span class="line">	val&#x3D;val*10+str[i]-&#39;0&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>转载请标明出处</strong>，<strong>谢谢</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/07/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-c++数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/07/c++%E6%95%B0%E7%BB%84/">c++数组</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/07/c++%E6%95%B0%E7%BB%84/" class="archive-article-date">
+  	<time datetime="2020-12-06T16:10:22.396Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>每次学完数组之后就是当时学完</strong>，<strong>当时特别的清楚</strong>，<strong>可是过了几天却就忘</strong>，<strong>今天我就把一维数组二维数组的知识点总结如下</strong>：</p>
+<p><strong>1</strong>.<strong>一维数组常见用法如下</strong>：</p>
+<p>1.1一维数组的数组名称：</p>
+<p>除了两种特殊的情况以外，都是指向数组第一个元素的指针。</p>
+<p> 特殊情况1：sizeof（数组名）求得的是整个数组的大小</p>
+<p>特殊情况2：对数组名取地址，是一维的数组指针，它的步长整个一维数组的长度</p>
+<p>一维数组名是一维数组的首地址，等于&amp;arr[0]（第一个元素的地址）</p>
+<p>1.2一维数组指针的定义方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line"><span class="comment">//方法一，先定义出数组类型，再通过类型定义数组指针变量</span></span><br><span class="line">typedef int(ARRAY)[5];//ARRARY代表存放5个int类型元素的数组 的数组类型</span><br><span class="line">ARRAY arr1;<span class="comment">//arr等同于arr可以向里面插入数据</span></span><br><span class="line"><span class="comment">//数组指针</span></span><br><span class="line">ARRAY* arr2=&amp;arr;</span><br><span class="line"><span class="comment">//方位arr2中的内容  *arr2等同于arr</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*arr2)[i]);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//方法2，先定义数组指针类型，再通过类型定义数组指针变量</span></span><br><span class="line">typedef int(*ARRAY)[5];</span><br><span class="line"><span class="comment">//数组指针</span></span><br><span class="line">ARRAY arr3=&amp;arr；<span class="comment">//遍历arr3与arr2一样</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*arr3)[i]);</span><br><span class="line">	&#125;    </span><br><span class="line"><span class="comment">//方法3，最方便直观的一种</span></span><br><span class="line"><span class="keyword">int</span>(*p)[<span class="number">5</span>]=&amp;arr;  </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*p)[i]);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2</strong>.<strong>二维数组常见用法</strong></p>
+<p>2.1 二维数组名</p>
+<p>二维数组名 除了两种特殊情况外，是指向第一个一维数组的 数组指针（int（*p）【3】）</p>
+<p>特殊情况1：sizeof 统计二维数组大小</p>
+<p>特殊情况2：对数组名称取地址  int(*p)【3】【3】 = &amp;arr</p>
+<p>二维数组的数组指针跟一维数组指针的定义方式类似：只是多了个维度（int（*p）【3】【3】）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> int arr2[][3] &#x3D; &#123; &#123;1,2,3&#125;,&#123;4,5,6&#125;,&#123;7,8,9&#125; &#125;;</span><br><span class="line">&#x2F;&#x2F;二维数组的数组名是整个位数数组的首地址等价于，arr2[0]和arr2[0][0],都是二维数组的首地址</span><br><span class="line">&#x2F;&#x2F;二维数组的访问</span><br><span class="line">for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">&#123;</span><br><span class="line">	for(int j&#x3D;0;j&lt;5;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;(*(arr2+i)+j)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3</strong> <strong>不要放回局部变量的地址</strong>，<strong>字符串也不行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;出现乱码,因为str是局部变量开辟在栈区，在当前函数结束就被释放，我们无权操作</span><br><span class="line">char* abtain()</span><br><span class="line">&#123;</span><br><span class="line">	char str[10] &#x3D; &quot;hello&quot;;</span><br><span class="line">	printf(&quot;%s\n&quot;, str);</span><br><span class="line">	return str;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char* str &#x3D; abtain();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;而下面这个可以  因为char* str &#x3D; &quot;hello&quot;，的内存是开辟在了常量区，常量区的内容不会随该函数的结束而释放，可以作为返回值，正确</span><br><span class="line">char* abtain()</span><br><span class="line">&#123;</span><br><span class="line">	char* str &#x3D; &quot;hello&quot;;</span><br><span class="line">	printf(&quot;%s\n&quot;, str);</span><br><span class="line">	return str;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char* str &#x3D; abtain();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>转载：请标明原创，谢谢</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/07/c++%E6%95%B0%E7%BB%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-sql语句的超详细笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1020,146 +1193,10 @@
 
 
   
-    <article id="post-超详细手把手教你搭建免费的hexo博客,看完学不会算我输哈哈哈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/26/%E8%B6%85%E8%AF%A6%E7%BB%86%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84hexo%E5%8D%9A%E5%AE%A2,%E7%9C%8B%E5%AE%8C%E5%AD%A6%E4%B8%8D%E4%BC%9A%E7%AE%97%E6%88%91%E8%BE%93%E5%93%88%E5%93%88%E5%93%88/">超详细手把手教你搭建免费的hexo博客,看完学不会算我输哈哈哈</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/26/%E8%B6%85%E8%AF%A6%E7%BB%86%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84hexo%E5%8D%9A%E5%AE%A2,%E7%9C%8B%E5%AE%8C%E5%AD%A6%E4%B8%8D%E4%BC%9A%E7%AE%97%E6%88%91%E8%BE%93%E5%93%88%E5%93%88%E5%93%88/" class="archive-article-date">
-  	<time datetime="2020-05-26T09:51:54.252Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.首先下载nodejs，官方网址<a href="https://bodejs.org" target="_blank" rel="noopener">https://bodejs.org</a>,打开网址，点击下载，根据你的电脑系统下载对应的版本</p>
-<p><img src="/images/image-20200526134524774.png" alt=""></p>
-<p>2.安装nodejs，这里比较简单一直点next就行</p>
-<p><img src="/images/image-20200526134949999.png" alt=""></p>
-<p>3.用win+R或是用搜索栏输入cmd打开电脑的终端，输入node -v,查看是否安装成功，</p>
-<p><img src="/images/image-20200526135304187.png" alt=""></p>
-<p>4.下载Git，官方网址<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a>，也是点击download,下载对应的版本</p>
-<p><img src="/images/image-20200526135816506.png" alt=""></p>
-<p>5.安装Git，这里比较简单一直next就行</p>
-<p><img src="/images/image-20200526140109365.png" alt=""></p>
-<p>5.在桌面鼠标右键，有Git GUI Here和Git Bash Here，则安装成功。</p>
-<p><img src="/images/image-20200526141815754.png" alt=""></p>
-<p>6.接下来it正式开启我们的搭建hexo博客之路，我们可以用自己电脑的终端或是用刚我们下载下来的Git进行相应的操作，这里我用的是Git的相关演示。（最好用Git来操作）</p>
-<p><img src="/images/image-20200526141000631.png" alt=""></p>
-<p>7.我们可以在任意一个位置，例如C盘或D盘或在桌面也行等，这里我演示的是E盘，我们打开E盘鼠标右键点击Git Bash Here，出现下面这个命令窗口</p>
-<p><img src="/images/image-20200526141948329.png" alt=""></p>
-<p>8.用淘宝镜像安装cnpm，速度比较快，在Git终端下输入,时间有点慢得等一会，出现以下内容则安装完成</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526143215043.png" alt=""></p>
-<p>9.安装hexo博客,，在Git终端下输入，同也是得等一会，出现以下内容则安装完成，当然你也可以用查看命令查看是否安装成功</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526144025132.png" alt=""></p>
-<p>10.我们在E盘下新建一个文件夹，可以用Git终端来建，也直接在E盘下建一个文件夹，因为之后我们的博客的所有内容都在这个文件夹中进行操作的，下面是我用Git终端建的文件夹,建好文件夹之后，我们进入这个文件夹。（后面的操作如果出现任何的问题，可以把这个文件夹删掉重来，总之不要害怕失败，重来就是了）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526144525680.png" alt=""></p>
-<p>11.初始化自己的博客，在Git终端输入</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/hexoinit.png" alt=""></p>
-<p>12.初始化完了之后我们就有了自己的博客了，启动博客</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/hexos.png" alt=""></p>
-<p>我们就可以打开localhost4000这个网址，这时你会看到子的默认的hexo博客如下：</p>
-<p><img src="/images/image-20200526145747450.png" alt=""></p>
-<p>13.搭建完博客以后我们就可以自己写博客了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"我的第一篇博“</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526150437298.png" alt=""></p>
-<p>我们可以在blog/source/_posts下看到我们写的”我的第一篇博客“</p>
-<p><img src="/images/image-20200526150610503.png" alt=""></p>
-<p>这时我们可以打开，编辑，并保存退出</p>
-<p><img src="/images/image-20200526151101800.png" alt=""></p>
-<p>14.这时我们就可以生成我们新写的博客，这时就会有我们新写的博客了，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<p>![<img src="/images/image-20200526151659112.png" alt="">](/images/image-20200526151607246.png</p>
-<p>再启动我们的博客，再刷新一下刚刚的localhost4000端口，这时就会看到我们新写的博客了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526151844756.png" alt=""></p>
-<p>15.把自己的博客部署到自己的github上，首先我们得注册一个github账号，注册账号这里我就不多说了，比较简单，注册完github之后我们新建一个仓库，注意新建得仓库必须是以自己的用户名开头，例如我的github用户名为：zhajianliang45，那我们新建的仓库名就应该为zhajianliang45.github.io,点击创建</p>
-<p><img src="/images/image-20200526152614680.png" alt=""></p>
-<p>这时我们就会有一个新的仓库，复制我们的地址</p>
-<p><img src="/images/image-20200526152841189.png" alt=""></p>
-<p>16.最后我们安装一个部署Git的插件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526153420134.png" alt=""></p>
-<p>17.这里是重点，希望你们细心别弄错，安装完了以后我们需要配置一下_config这个文件，我们打开blog/_config.yml这个文件</p>
-<p><img src="/images/image-20200526153926324.png" alt=""></p>
-<p>之后开始配置，注意下面这三个部分每个冒号之后都有一个空格，type:  ‘git’,repo:  是你刚创建github仓库的地址我的是 repo: <a href="https://github.com/zhajianliang45/zhajianliang45.github.io.git" target="_blank" rel="noopener">https://github.com/zhajianliang45/zhajianliang45.github.io.git</a> branch: master,配置完以后保存退出。</p>
-<p><img src="/images/image-20200526154308568.png" alt=""></p>
-<p>18.最后一步把自己的博客部署到远端，这时会让你输入github的用户名和密码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/image-20200526155026510.png" alt=""></p>
-<p>19.搭建完成可以用自己新建仓库名进行访问，例如我的是zhajianliang45.github.io</p>
-<p><img src="/images/image-20200526155705746.png" alt=""></p>
-<p>哈哈哈其实搭建博客真的一点都不难，错了大不了重新再来嘛，我相信你们都能成功的搭建自己的博客，另外觉得对您有帮助的话给个双击，谢谢。</p>
-<p>若要转载此文请注明出处：<a href="https://zhajianliang.github.io" target="_blank" rel="noopener">https://zhajianliang.github.io</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/26/%E8%B6%85%E8%AF%A6%E7%BB%86%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84hexo%E5%8D%9A%E5%AE%A2,%E7%9C%8B%E5%AE%8C%E5%AD%A6%E4%B8%8D%E4%BC%9A%E7%AE%97%E6%88%91%E8%BE%93%E5%93%88%E5%93%88%E5%93%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
